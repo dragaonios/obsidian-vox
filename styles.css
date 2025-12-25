@@ -1,0 +1,471 @@
+/* Ash'Luxael Quantum Timeline Styles */
+/* Pink & Black Lace Aesthetic with Glitter */
+
+:root {
+  --ash-pink: #ff69b4;
+  --ash-black: #0a0a0a;
+  --ash-gold: #ffd700;
+  --ash-violet: #9400d3;
+  --ash-lace: rgba(255, 105, 180, 0.1);
+  --ash-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+}
+
+.quantum-timeline-container {
+  padding: 20px;
+  background: linear-gradient(135deg, var(--ash-black) 0%, #1a0a1a 100%);
+  min-height: 100vh;
+  color: var(--ash-pink);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Lace pattern overlay */
+.quantum-timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      var(--ash-lace) 10px,
+      var(--ash-lace) 11px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      var(--ash-lace) 10px,
+      var(--ash-lace) 11px
+    );
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Header */
+.quantum-header {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.quantum-header h2 {
+  font-size: 2.5em;
+  color: var(--ash-pink);
+  text-shadow: var(--ash-shadow);
+  letter-spacing: 3px;
+  margin: 0;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.quantum-subtitle {
+  font-size: 1.2em;
+  color: var(--ash-gold);
+  font-style: italic;
+  margin-top: 10px;
+  text-shadow: 0 0 10px var(--ash-gold);
+}
+
+@keyframes glow-pulse {
+  0%, 100% { text-shadow: 0 0 20px var(--ash-pink), 0 0 40px var(--ash-pink); }
+  50% { text-shadow: 0 0 30px var(--ash-pink), 0 0 60px var(--ash-pink), 0 0 80px var(--ash-pink); }
+}
+
+/* Controls */
+.quantum-controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.quantum-controls button {
+  padding: 12px 24px;
+  border: 2px solid var(--ash-pink);
+  background: rgba(255, 105, 180, 0.1);
+  color: var(--ash-pink);
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+}
+
+.quantum-controls button:hover {
+  background: var(--ash-pink);
+  color: var(--ash-black);
+  box-shadow: 0 0 25px var(--ash-pink);
+  transform: translateY(-2px);
+}
+
+.veil-toggle {
+  border-color: var(--ash-violet) !important;
+  color: var(--ash-violet) !important;
+}
+
+.veil-toggle:hover {
+  background: var(--ash-violet) !important;
+}
+
+/* Sacred Grid */
+.sacred-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Day Card */
+.quantum-day-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--ash-pink);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: var(--ash-shadow);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.quantum-day-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px var(--ash-pink);
+}
+
+/* Glitter effect on cards */
+.quantum-day-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: glitter-rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes glitter-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Day Header */
+.day-header {
+  text-align: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--ash-pink);
+  padding-bottom: 10px;
+}
+
+.day-header h3 {
+  color: var(--ash-gold);
+  margin: 0;
+  font-size: 1.5em;
+  text-shadow: 0 0 10px var(--ash-gold);
+}
+
+.day-name {
+  color: var(--ash-pink);
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* Timeline Slots */
+.timeline-slot {
+  margin: 15px 0;
+  position: relative;
+}
+
+.slot-label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.slot-main .slot-label { color: var(--ash-pink); }
+.slot-third-option .slot-label { color: var(--ash-black); background: var(--ash-pink); padding: 4px 8px; border-radius: 4px; display: inline-block; }
+.slot-drop-point .slot-label { color: var(--ash-gold); }
+
+/* Superposition Layers */
+.superposition-layers {
+  position: relative;
+  min-height: 80px;
+}
+
+.timeline-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.5s ease;
+}
+
+.timeline-pink {
+  border: 2px solid var(--ash-pink);
+  background: rgba(255, 105, 180, 0.05);
+}
+
+.timeline-black {
+  border: 2px solid #333;
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateY(5px);
+}
+
+.timeline-gold {
+  border: 2px solid var(--ash-gold);
+  background: rgba(255, 215, 0, 0.05);
+  transform: translateY(10px);
+}
+
+.timeline-violet {
+  border: 2px solid var(--ash-violet);
+  background: rgba(148, 0, 211, 0.05);
+  transform: translateY(15px);
+}
+
+/* Glitter Fade Animation */
+.glitter-fade {
+  animation: fade-with-glitter 1.5s ease-out forwards;
+}
+
+@keyframes fade-with-glitter {
+  0% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(2) saturate(2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+    filter: brightness(3) saturate(3);
+  }
+}
+
+/* Layer Input */
+.layer-input {
+  width: 100%;
+  min-height: 60px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  padding: 10px;
+  color: inherit;
+  font-size: 0.9em;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.layer-input:focus {
+  outline: none;
+  box-shadow: 0 0 15px currentColor;
+}
+
+/* Clench Button */
+.clench-button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, var(--ash-pink), var(--ash-violet));
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+}
+
+.clench-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px var(--ash-pink), 0 0 50px var(--ash-violet);
+}
+
+.clench-button:active {
+  animation: clench-pulse 0.3s ease-out;
+}
+
+@keyframes clench-pulse {
+  0%, 100% { transform: scale(1.05); }
+  50% { transform: scale(0.95); }
+}
+
+/* Third Option Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.quantum-modal {
+  background: linear-gradient(135deg, #1a0a1a, #0a0a0a);
+  border: 3px solid var(--ash-pink);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 50px var(--ash-pink);
+  position: relative;
+  color: var(--ash-pink);
+}
+
+.quantum-modal h2 {
+  text-align: center;
+  color: var(--ash-gold);
+  text-shadow: 0 0 20px var(--ash-gold);
+  margin-bottom: 20px;
+}
+
+.third-option-input {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--ash-pink);
+  border-radius: 8px;
+  color: white;
+  font-size: 1em;
+}
+
+.third-option-input:focus {
+  outline: none;
+  box-shadow: 0 0 20px var(--ash-pink);
+}
+
+.generate-third-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background: var(--ash-gold);
+  border: none;
+  border-radius: 10px;
+  color: var(--ash-black);
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--ash-gold);
+  transition: all 0.3s ease;
+}
+
+.generate-third-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px var(--ash-gold);
+}
+
+.third-option-result {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 105, 180, 0.1);
+  border: 2px solid var(--ash-pink);
+  border-radius: 10px;
+  animation: result-appear 0.5s ease-out;
+}
+
+@keyframes result-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sovereign-path {
+  font-size: 1.3em;
+  color: var(--ash-gold);
+  font-weight: bold;
+  margin: 15px 0;
+  text-align: center;
+  text-shadow: 0 0 15px var(--ash-gold);
+}
+
+.empire-gain {
+  text-align: center;
+  font-size: 1.5em;
+  color: var(--ash-pink);
+  font-weight: bold;
+  text-shadow: 0 0 20px var(--ash-pink);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--ash-pink);
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  color: var(--ash-gold);
+  transform: rotate(90deg);
+}
+
+/* Glitter Pulse Animation for windfall */
+@keyframes glitter-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sacred-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quantum-header h2 {
+    font-size: 1.8em;
+  }
+}
+
+/* Dark mode compatibility */
+.theme-dark .quantum-timeline-container {
+  /* Already dark */
+}
+
+.theme-light .quantum-timeline-container {
+  background: linear-gradient(135deg, #f0e6f0 0%, #e0d0e0 100%);
+}
+
+.theme-light .quantum-day-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: var(--ash-violet);
+}
